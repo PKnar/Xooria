@@ -1,0 +1,6 @@
+obj
+bin
+.history
+appsettings.json
+.vscode
+*.db
