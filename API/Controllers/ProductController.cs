@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Core.Interfaces;
 
 namespace API.Controllers
 {
@@ -12,38 +13,22 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly StoreContext context;
 
-        /*this is a contractor, that contains
-         the database context.
-     When you call an endpoint for the products
-     it will hit this controller
-     then a new instance will be created.
-     The program then will check what other 
-     class this class depends on
-     (in this case in depends on the database | Infrastructure)
-     */
 
-        public ProductsController(StoreContext context)
+        private readonly IProductRepository _repo;
+
+        public ProductsController(IProductRepository repo)
         {
-            this.context = context;
+            this._repo = repo;
+
         }
 
 
-        // ActionResult means that this is going to be an
-        // HTTP response
-        // List means that it is going to be an Array
-        //Product is basically the data model/structure
-        //Tast represent async operation
-        //it functions like promise
-        // so we have and async Task, which is an ActionResult 
-        // which returns a result of List type , which then has
-        //Product Entity structure
         [HttpGet]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
 
-            var products = await context.Produts.ToListAsync();
+            var products = await this._repo.GetProductsAsync();
             return Ok(products);
         }
 
@@ -51,10 +36,28 @@ namespace API.Controllers
 
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            //context is  the database instance
-            //that has methods
-            //usage [databaseInstance].[tablename].method()
-            return await context.Produts.FindAsync(id);
+
+            return await this._repo.GetProductByIdAsync(id);
         }
+
+
+        [HttpGet("brands")]
+        public async Task<ActionResult<IReadOnlyList<Product>>> GetProductBrands()
+        {
+
+            var brands = await this._repo.GetProductBrandsAsync();
+            return Ok(brands);
+        }
+
+
+        [HttpGet("types")]
+        public async Task<ActionResult<IReadOnlyList<Product>>> GetProductTypes()
+        {
+
+            var types = await this._repo.GetProductTypesAsync();
+            return Ok(types);
+        }
+
+
     }
 }
