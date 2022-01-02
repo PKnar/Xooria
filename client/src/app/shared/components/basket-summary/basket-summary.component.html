@@ -1,0 +1,29 @@
+<div *ngIf="basket$ | async">
+    <div class="flex-row product-summery-wrapper" *ngFor="let item of (basket$ | async).items">
+
+        <div class="flex-row product-info-wrapper ">
+            <img src="{{item.pictureUrl}}" alt="{{item.productName}}">
+
+            <div class="product-info">
+                <a class="product-name" routerLink="/shop/{{item.id}}">{{item.productName}}</a>
+
+                <div class="flex-row">
+                    <p class="price">
+                        <strong>{{item.price | currency}}</strong>
+                    </p>
+                    <div class="">
+                        <i *ngIf="isInBasketComp" (click)="decrementProductQuantity(item)" class="fa fa-minus "></i>
+                        <span class="quantity">{{item.quantity}}</span>
+                        <i *ngIf="isInBasketComp" (click)="incrementProductQuantity(item)" class="fa fa-plus"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <a (click)="removeBasketProduct(item)"><i class="fa fa-times"></i></a>
+    </div>
+</div>

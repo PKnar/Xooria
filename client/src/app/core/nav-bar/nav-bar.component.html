@@ -1,0 +1,99 @@
+<nav [ngStyle]="{'background-color':bgColor}">
+    <h4 class="logo"> <a [ngStyle]="{'color': logoColor}" routerLink="/" routerLinkActive=""
+            [routerLinkActiveOptions]="{exact:true}">XOORIA</a></h4>
+
+    <div [ngStyle]="{'display':displayState}">
+        <ul class="links">
+            <li>
+                <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+            </li>
+            <li>
+                <a routerLink="/shop" routerLinkActive="active">Shop</a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div [ngStyle]="{'display':displayState}">
+
+        <div class="icon-links">
+            <div>
+                <a id="basket" routerLink="/basket">
+                    <span *ngIf="(basket$ | async) as basket" class="cart-num">{{basket.items.length}}</span>
+                    <img src="../../../assets/icons/shopping-bag.png">
+
+                </a>
+            </div>
+
+            <div *ngIf="(currentUser$ | async) === null">
+                <a routerLink="/account/login" class=""><img src="../../../assets/icons/user.png"></a>
+            </div>
+
+            <div *ngIf="(currentUser$ | async) as currentUser">
+
+                <div class="logged-user-wrapper">
+                    <div class="logged-user" style="cursor:pointer">
+                        Hi
+                        <!-- <a class=""><img src="../../../assets/icons/user.png"></a> -->
+                    </div>
+                    <div (click)="logout()">
+                        <img style="cursor: pointer;" src="../../../assets/icons/sign-out.png">
+                    </div>
+
+                    <!-- <div style="cursor: pointer;" class="dropdown-wrapper">
+                    <a routerLink="/basket">
+
+                        <i class="fa fa-shopping-cart "></i> View Basket
+                    </a>
+
+                    <a routerLink="/basket">
+
+                        <i class="fa fa-history "></i> View Orders
+                    </a>
+
+                    <hr />
+
+                    <a (click)="logout()">
+
+                        <i class="fa fa-sign-out mr-3"></i> Logout
+                    </a>
+                </div> -->
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</nav>
+
+<!-- <div
+    class="nav-wrapper fixed-top d-flex flex-column flex-md-row align-items-center justify-content-between pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <img routerLink="/" class="logo" src="/assets/images/logo.png" alt="logo" />
+    </a>
+
+    <nav class="">
+        <a class="me-3 py-2  text-decoration-none" routerLink="/" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">Home</a>
+        <a class="me-3 py-2  text-decoration-none" routerLink="/shop" routerLinkActive="active">Shop</a>
+        <a class="me-3 py-2  text-decoration-none" routerLink="/test-error" routerLinkActive="active">Error</a>
+    </nav>
+    <div class="d-flex align-items-center">
+        <a class="position-relative" routerLink="/basket">
+            <i class="fa fa-shopping-cart fa-2x  text-dark"></i>
+            <div *ngIf="(basket$ | async) as basket" class="cart-no">{{basket.items.length}}</div>
+        </a>
+        <a class="btn btn-outline-secondary mr-2">Login</a>
+        <a class="btn btn-outline-secondary mr-3">Sign up</a>
+
+
+    </div>
+</div> -->

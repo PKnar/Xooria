@@ -1,0 +1,22 @@
+<div class="form-input">
+    <input (input)="onChange($event.target.value)" (blur)="onTouched()" [type]='type' id="{{label}}" #input
+        [placeholder]="label" required />
+
+
+    <div *ngIf="(control && control.control && !control.control.valid && control.control.touched)"
+        class="error-messages">
+        <span class="error-message" *ngIf="control.control.errors?.required">
+            {{label}} is required
+
+        </span>
+
+        <span class="error-message" *ngIf="control.control.errors?.pattern">
+            Invalid Email address
+
+        </span>
+        <span class="error-message" *ngIf="control.control.errors?.emailExists">
+            Email is already in use
+
+        </span>
+    </div>
+</div>

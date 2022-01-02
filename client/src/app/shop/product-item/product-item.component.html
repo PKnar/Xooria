@@ -1,0 +1,28 @@
+<div class="product-card">
+    <div class="product-name">
+        <p>{{product.productBrand}}</p>
+        <a routerLink="/shop/{{product.id}}">
+            <h6>{{product.name}}</h6>
+        </a>
+    </div>
+
+    <div class="img-wrapper">
+        <img src="{{product.pictureUrl}}" alt="{{product.name}}" />
+    </div>
+
+    <div>
+
+        <!--|(this is a pipe) that formats the data, we know price is currency, so it will format it as currency-->
+        <p>Price</p>
+        <span class="price"> {{product.price | currency}}</span>
+
+
+    </div>
+    <div class="buttons">
+        <button (click)="addProductToBasket()"><i class=" fa fa-shopping-cart "></i> Add </button>
+        <button class="view-button" routerLink="/shop/{{product.id}}" routerLinkActive="router-link-active"
+            type="button">View</button>
+
+    </div>
+
+</div>

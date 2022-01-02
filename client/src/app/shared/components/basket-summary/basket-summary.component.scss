@@ -1,0 +1,52 @@
+.flex-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product-summery-wrapper {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+
+  img {
+    width: 150px;
+    margin-right: 3rem;
+  }
+
+  .product-name {
+    font-size: 1.3rem;
+    color: black;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .product-info {
+    width: 300px;
+  }
+
+  .fa-times {
+    color: rgb(148, 148, 148);
+    font-size: 2rem;
+  }
+
+  .price {
+    margin-right: 1rem;
+    font-size: 13px;
+  }
+
+  .quantity {
+    margin: 0 1rem;
+  }
+
+  i {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 800px) {
+  .product-info-wrapper {
+  }
+}

@@ -1,0 +1,13 @@
+<div>
+    <ngx-spinner>
+    </ngx-spinner>
+    <app-nav-bar></app-nav-bar>
+    <app-section-header></app-section-header>
+    <div>
+        <!--This functions like React's BrowserRouter
+              router-outlet is replaced with the loaded component, based on the chosen
+              route,if user request's /shop route, it will be "replaced" by Shop component -->
+        <router-outlet></router-outlet>
+
+    </div>
+</div>

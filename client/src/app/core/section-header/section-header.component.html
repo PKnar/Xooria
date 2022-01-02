@@ -1,0 +1,12 @@
+<!--async pipe subscribes to given observable automatically
+ and unsubscribes once component is no longer in use.
+ every Subscribe() method needs to be unsubscriped except Http requests,
+ since Angular automatically sends "complete" response once it is done.
+ So to avoid this problem, | async option can be used. 
+-->
+<div [ngStyle]="{'display':[displayState]}" *ngIf="(breadcrumb$ | async) as breadcrumbs">
+    <div class="breadcrumb-wrapper"
+        *ngIf="breadcrumbs.length >0 && breadcrumbs[breadcrumbs.length - 1].label !=='Home'">
+        <xng-breadcrumb></xng-breadcrumb>
+    </div>
+</div>

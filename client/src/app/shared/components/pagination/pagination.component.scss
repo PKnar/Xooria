@@ -1,0 +1,20 @@
+.pagination::ng-deep ul {
+  margin: 4rem 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+  li {
+    margin: 1rem;
+  }
+
+  .page-item .page-link {
+    color: black;
+  }
+
+  .page-item.active .page-link {
+    background-color: rgb(206, 206, 206) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 100%;
+  }
+}

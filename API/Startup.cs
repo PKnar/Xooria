@@ -1,12 +1,14 @@
-using Core.Interfaces;
+using API.Extensions;
+using API.Helpers;
+using API.Middleware;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 
 namespace API
 {
@@ -24,36 +26,69 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
-            });
 
+            services.AddAutoMapper(typeof(MappingProfiles));
+            services.AddControllers();
             services.AddDbContext<StoreContext>(x =>
             x.UseSqlite(_config.GetConnectionString("DefaultsConnection")));
 
+            //Identity config
+            services.AddDbContext<AuthIdentityDbContext>(x =>
+            {
+                x.UseSqlite(_config.GetConnectionString("IdentityConnection"));
+            });
 
-            //AddCoped is about the specified methods lifecycle 
-            services.AddScoped<IProductRepository, ProductRepository>();
+            //Redis config
+            services.AddSingleton<IConnectionMultiplexer>(connection =>
+            {
+                var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+                return ConnectionMultiplexer.Connect(configuration);
+            });
+
+            services.AddAppServices();
+            services.AddIdentityServices(this._config);
+            services.AddSwaggerExtensions();
+
+            //Setting up the cors 
+            services.AddCors(option =>
+            {
+
+                option.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                });
+            });
+
+
+
+
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-            }
+            // Custom Exception error handeling
+            app.UseMiddleware<ExceptionMiddleware>();
+
+            //Handleing non-existant endpoints
+            //These requests are being  handled by ErrorController
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
+
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            app.UseStaticFiles();
+
+            app.UseCors("CorsPolicy");
+
+            app.UseAuthentication();
+
             app.UseAuthorization();
+
+            app.UseSwaggerDocs();
 
             app.UseEndpoints(endpoints =>
             {

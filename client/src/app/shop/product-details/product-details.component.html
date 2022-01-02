@@ -1,0 +1,32 @@
+<div class="product-details-wrapper" *ngIf="product">
+    <div class="img-wrapper">
+        <img src="{{product.pictureUrl}}" alt="{{product.name}}" />
+
+    </div>
+
+    <div class="wrapper-flex-column">
+        <div class="info-container">
+            <div class="product-info">
+                <h4 class="brand">{{product.productBrand}}</h4>
+                <h2 class="name">{{product.name}}</h2>
+
+                <p class="price">{{product.price | currency}}</p>
+                <div class="icons-wrapper">
+                    <i (click)="decrementQuantity()" class="decrement fa fa-minus-circle "></i>
+                    <span>{{quantity}}</span>
+                    <i (click)="incrementQuantity()" class="increment fa fa-plus-circle "></i>
+                </div>
+            </div>
+
+            <div class="product-desc">
+                <h4>Description</h4>
+                <p>{{product.description}}</p>
+            </div>
+
+            <button (click)="addProductToBasket()">Add to Cart</button>
+        </div>
+
+    </div>
+
+
+</div>

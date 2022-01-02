@@ -1,0 +1,16 @@
+<div class="container mt-5">
+    <h4>Internal Server Error - Refresh the page</h4>
+    <div *ngIf="error">
+        <h5 class="text-danger">{{error.message}}</h5>
+    </div>
+    <p>What to do next?</p>
+    <ol>
+        <li>Open chrome dev tools</li>
+        <li>Inspect the network tab</li>
+        <li>Check the failing request</li>
+        <li>Examine this request url</li>
+        <li>Reproduce the error in postman</li>
+    </ol>
+    <p>This is where the investigation should start</p>
+    <code class="mt-5" style="background-color: whitesmoke;">{{error.Details}}</code>
+</div>

@@ -1,0 +1,30 @@
+<div class="basket-page  flex-row">
+    <div *ngIf="(basket$ |async) ===null">
+        <p> No Items in the basket</p>
+    </div>
+
+    <div class="flex-row" *ngIf="basket$ | async">
+
+        <div class="flex-column products-wrapper" *ngIf="(basket$ |async) as basket">
+            <div class="flex-row">
+
+                <app-basket-summary (increment)="incrementProductQuantity($event)"
+                    (decrement)="decrementProductQuantity($event)" (delete)="removeBasketProduct($event)">
+
+                </app-basket-summary>
+
+            </div>
+
+        </div>
+
+        <div class="checkout-wrapper">
+            <app-order-total></app-order-total>
+            <a routerLink="/checkout" class="checkout-button">
+                Proceed to checkout
+            </a>
+        </div>
+    </div>
+
+
+
+</div>

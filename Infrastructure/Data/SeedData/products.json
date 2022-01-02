@@ -1,146 +1,146 @@
 [
   {
-    "Name": "Angular Speedster Board 2000",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 200,
-    "PictureUrl": "images/products/sb-ang1.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 1
-  },
-  {
-    "Name": "Green Angular Board 3000",
-    "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
-    "Price": 150,
-    "PictureUrl": "images/products/sb-ang2.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 1
-  },
-  {
-    "Name": "Core Board Speed Rush 3",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 180,
-    "PictureUrl": "images/products/sb-core1.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 2
-  },
-  {
-    "Name": "Net Core Super Board",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 300,
-    "PictureUrl": "images/products/sb-core2.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 2
-  },
-  {
-    "Name": "React Board Super Whizzy Fast",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 250,
-    "PictureUrl": "images/products/sb-react1.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 4
-  },
-  {
-    "Name": "Typescript Entry Board",
-    "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
+    "Name": "Ozweego Damus",
+    "Description": "These sneakers in a whole, soft light brown color and are made with a mesh upper for breathability. Features suede overlays that offer premium support. These kicks have a lightweight EVA midsole that uses AdiPRENE cushioning for the forefoot and heel, providing a responsive feel with every step. With a rubber outsole for traction, these sneakers are finished with the iconic 3-Stripes on the sidewalls and the Trefoil on the tongue.",
     "Price": 120,
-    "PictureUrl": "images/products/sb-ts1.png",
+    "PictureUrl": "images/products/Adidas-1.png",
     "ProductTypeId": 1,
-    "ProductBrandId": 5
+    "ProductBrandId": 1
   },
   {
-    "Name": "Core Blue Hat",
-    "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 10,
-    "PictureUrl": "images/products/hat-core1.png",
-    "ProductTypeId": 2,
+    "Name": "Rivalry Low Premium",
+    "Description": "The '80s were a golden era in basketball, hip hop and style. And the adidas Rivalry shoes were at the heart of it. This pair honours the decade with soft leather and simple colours, like the ones you see in retro aerobics videos. Pull out your short shorts and sweatband and make it a whole vibe. This product is made with recycled content as part of our ambition to end plastic waste. 20% of pieces used to make the upper are made with minimum 50% recycled content.",
+    "Price": 100,
+    "PictureUrl": "images/products/Adidas-2.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "ENTRAP MID SHOES",
+    "Description": "These basketball-inspired adidas shoes come from a different era. Most sneakerheads want everyone to believe that they exude pure 80s style. Some basketball players say that this look reached its peak in the 90s. Others claim that they are only now becoming really popular, but in the end everyone agrees that they are timeless. The leather upper gives classic kicks simple elegance.",
+    "Price": 80,
+    "PictureUrl": "images/products/Adidas-3.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Air Huarache LE",
+    "Description": "Engineered for comfort for your feet, the Nike Air Huarache LE is a streetwear favourite. Crisp leather on the upper combines with super-ventilating, perfectly shiny neoprene-like material for easy styling. The iconic heel clip and minimal branding keep the popular look of the years.",
+    "Price": 129.99,
+    "PictureUrl": "images/products/Nike-1.png",
+    "ProductTypeId": 1,
     "ProductBrandId": 2
   },
   {
-    "Name": "Green React Woolen Hat",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 8,
-    "PictureUrl": "images/products/hat-react1.png",
-    "ProductTypeId": 2,
-    "ProductBrandId": 4
+    "Name": "Air Force 1 Low '07",
+    "Description": "Keep your stylish look in the Nike Air Force 1 Low '07, the basketball icon that puts a new spin on your favorite pieces: crisp leather, bold colors and just the right amount of shine so you can shine. Thanks to the water-repellent Cordura material, these shoes are perfect for rainy days.",
+    "Price": 119.99,
+    "PictureUrl": "images/products/Nike-2.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 2
   },
   {
-    "Name": "Purple React Woolen Hat",
-    "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 15,
-    "PictureUrl": "images/products/hat-react2.png",
-    "ProductTypeId": 2,
-    "ProductBrandId": 4
+    "Name": "Blazer Mid '77 Jumbo",
+    "Description": "The Nike Blazer Mid '77 Jumbo reinvents a classic with an ever-popular look and feel. Featuring the old-school look you love, the shoe has an elastic heel with a corduroy-like texture, and large tabs make it easy on and off. The oversized Swoosh design and wide laces provide a fun twist.",
+    "Price": 109.99,
+    "PictureUrl": "images/products/Nike-3.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 2
   },
   {
-    "Name": "Blue Code Gloves",
-    "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
-    "Price": 18,
-    "PictureUrl": "images/products/glove-code1.png",
+    "Name": "RS-X Reinvent ",
+    "Description": "Reinvent your style with this new take on our classic Running System, the RS-X. This bold design brings together graphic elements with a colour-blocked suede upper, so you can make the most of an impression with the quality you've come to expect from PUMA.",
+    "Price": 110,
+    "PictureUrl": "images/products/Puma-1.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Rebound JOY ",
+    "Description": "Introducing a basketball-style shoe that could be a real game changer. A good dose of retro inspiration coupled with PUMA's DNA, the result is a shoe that looks good not only on the basketball court, but also off it. With a synthetic leather and TPU upper, this shoe has the flexibility you're looking for and, thanks to the SoftFoam+ sockliner, you'll also get the support you need. The perforations are the final touch. These give the shoe a trendy and aerodynamic look.",
+    "Price": 65,
+    "PictureUrl": "images/products/Puma-2.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Z.N.E. Sportswear Hoodie",
+    "Description": "It's not just about achieving focus. It's about staying there. Shut off the noise from outside - and inside - in this adidas zip hoodie. Distraction is inevitable, but the comfort of this sweatshirt helps you focus on the match ahead. Soft, slightly stretchy cotton, moisture-wicking material, pre-shaped sleeves - every aspect is designed so that you can step onto the pitch cool and prepared.",
+    "Price": 110,
+    "PictureUrl": "images/products/Adidas-hoodie-1.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Originals Hoodie",
+    "Description": "It's not just about achieving focus. It's about staying there. Shut off the noise from outside - and inside - in this adidas zip hoodie. Distraction is inevitable, but the comfort of this sweatshirt helps you focus on the match ahead. Soft, slightly stretchy cotton, moisture-wicking material, pre-shaped sleeves - every aspect is designed so that you can step onto the pitch cool and prepared.",
+    "Price": 75,
+    "PictureUrl": "images/products/Adidas-hoodie-2.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Logo Play Cropped Hoodie",
+    "Description": "That favorite song you listen to over and over? This cropped adidas hoodie is just that. With a plethora of Trefoil logos to show your authentic spirit, it's easy to see why you keep bringing the super soft, cozy silhouette out of the closet. No problem if you want to wear it every day.By buying cotton clothing from us, you support more sustainable cotton production. This product is made with recycled material, because we have the ambition to end plastic waste.",
+    "Price": 70,
+    "PictureUrl": "images/products/Adidas-hoodie-3.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Circle adidas Hoodie",
+    "Description": "Give your serious side a day off. Enjoy a good vibe and carefree comfort in this adidas hoodie. The fleece with cotton feels like a wonderfully lazy Saturday morning. Silkscreen graphics make it even more fun. By buying cotton clothing from us, you support more sustainable cotton production.",
+    "Price": 80,
+    "PictureUrl": "images/products/Adidas-hoodie-4.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Graphics Tricolor Hoodie",
+    "Description": "The 3-Stripes. One community. Millions of unique voices. Show your brand with this adidas hoodie and stand up for your views with the Trefoils on both sleeves. It may sound like a tall order, but this style is all about laid-back comfort. It turns out that staying true to yourself can be very comfortable.",
+    "Price": 80,
+    "PictureUrl": "images/products/Adidas-hoodie-5.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Nike Air",
+    "Description": "The Nike Air Hoodie is easy to layer and inspired by movement. Curved lines are highlighted by a printed contour, adding a fresh twist to this classic. A reflective Air graphic on the chest and an embroidered Futura Air graphic on the hem add this super comfortable, supple fleece extra texture.",
+    "Price": 64.99,
+    "PictureUrl": "images/products/Nike-hoodie-1.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 2
+  },
+  {
+    "Name": "Oversized fleecehoodie",
+    "Description": "Layer in comfort in the Nike Sportswear Oversized Fleece Hoodie. This relaxed fit provides a great casual feel, perfect for everyday wear. A woven overlay on the front pocket adds a smart look and shows off your favorite brand.",
+    "Price": 69.99,
+    "PictureUrl": "images/products/Nike-hoodie-2.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 2
+  },
+  {
+    "Name": "Nike Sportswear City Made",
+    "Description": "The Nike Sportswear City Made Hoodie is an updated version of an essential fleece with handy details, ready for the city. This versatile piece is made from soft French terry and features a zip pocket on the front for easy access to your phone on the go. Mesh panels provide care for targeted ventilation so you stay comfortable when you're on the move and the weather changes.",
+    "Price": 84.99,
+    "PictureUrl": "images/products/Nike-hoodie-3.png",
+    "ProductTypeId": 4,
+    "ProductBrandId": 2
+  },
+  {
+    "Name": "The NeverWorn hoodie",
+    "Description": "Take part in a fashion renaissance with our NeverWorn collection, a collection of retro styles revamped with a mix of distressed materials and new techniques for a truly authentic look. Our The NeverWorn hoodie is made from cozy fabric and features bold graphics that make this shirt a quick favorite.",
+    "Price": 100,
+    "PictureUrl": "images/products/Puma-hoodie-1.png",
     "ProductTypeId": 4,
     "ProductBrandId": 3
   },
   {
-    "Name": "Green Code Gloves",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 15,
-    "PictureUrl": "images/products/glove-code2.png",
+    "Name": "Essentials+ Cropped metallic hoodie",
+    "Description": "Take your style to the next level with our Essentials+ Cropped Metallic Hoodie. This fashionable top has a cropped hem and striking metallic accents. It's made with cotton from the Better Cotton Initiative, so you can emphasize your street style without sacrificing durability.",
+    "Price": 50,
+    "PictureUrl": "images/products/Puma-hoodie-2.png",
     "ProductTypeId": 4,
     "ProductBrandId": 3
-  },
-  {
-    "Name": "Purple React Gloves",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.",
-    "Price": 16,
-    "PictureUrl": "images/products/glove-react1.png",
-    "ProductTypeId": 4,
-    "ProductBrandId": 4
-  },
-  {
-    "Name": "Green React Gloves",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 14,
-    "PictureUrl": "images/products/glove-react2.png",
-    "ProductTypeId": 4,
-    "ProductBrandId": 4
-  },
-  {
-    "Name": "Redis Red Boots",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 250,
-    "PictureUrl": "images/products/boot-redis1.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 6
-  },
-  {
-    "Name": "Core Red Boots",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 189.99,
-    "PictureUrl": "images/products/boot-core2.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 2
-  },
-  {
-    "Name": "Core Purple Boots",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 199.99,
-    "PictureUrl": "images/products/boot-core1.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 2
-  },
-  {
-    "Name": "Angular Purple Boots",
-    "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
-    "Price": 150,
-    "PictureUrl": "images/products/boot-ang2.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 1
-  },
-  {
-    "Name": "Angular Blue Boots",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 180,
-    "PictureUrl": "images/products/boot-ang1.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 1
   }
 ]

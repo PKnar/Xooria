@@ -1,0 +1,23 @@
+<div class="auth-page">
+
+    <div class="form-wrapper">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <h2>Login</h2>
+            <p class="message">Please Sign In to Continue </p>
+            <app-text-inputs formControlName="email" [label]="'Email Address'"></app-text-inputs>
+            <app-text-inputs [type]="'password'" formControlName="password" [label]="'Password'"></app-text-inputs>
+
+            <button [disabled]="loginForm.invalid">Login</button>
+            <hr>
+            <p class="message">New User? Sign Up <a routerLink="/account/register">Here</a> </p>
+        </form>
+
+
+    </div>
+    <div class="cover-wrapper">
+        <div class="cover-img"></div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,33 @@
+<div class="subtotal-wrapper">
+
+    <h3>
+        Order Summary
+    </h3>
+
+    <ul *ngIf="(basketTotal$ | async) as total">
+        <li>
+
+            <p> Subtotal</p>
+            <p> {{total.subtotal | currency}}</p>
+
+        </li>
+        <li>
+
+            <p>Shipping and handling</p>
+            <p> {{total.shipping |currency}}</p>
+
+        </li>
+
+        <li>
+
+            <p>
+                Total
+            </p>
+            <p> {{total.total | currency}}</p>
+
+        </li>
+
+
+    </ul>
+
+</div>
