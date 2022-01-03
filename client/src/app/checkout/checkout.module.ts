@@ -7,6 +7,7 @@ import { CheckoutAddressComponent } from './checkout-address/checkout-address.co
 import { CheckoutReviewComponent } from './checkout-review/checkout-review.component';
 import { CheckoutPaymentComponent } from './checkout-payment/checkout-payment.component';
 import { CheckoutSuccessComponent } from './checkout-success/checkout-success.component';
+import { OrdersModule } from '../orders/orders.module';
 
 @NgModule({
   declarations: [

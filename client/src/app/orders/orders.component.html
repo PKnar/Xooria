@@ -1,0 +1,21 @@
+<h1>Orders work</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Order</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders" routerLink="/orders/{{order.id}}">
+
+            <th># {{order.id}}</th>
+            <td>{{order.orderDate | date:"medium"}}</td>
+            <td>{{order.total}}</td>
+
+
+        </tr>
+    </tbody>
+</table>

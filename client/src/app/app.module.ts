@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { OrdersModule } from './orders/orders.module';
 
 // Interceptors are registered as providers
 
@@ -23,6 +24,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CoreModule,
     HomeModule,
     NgxSpinnerModule,
+    OrdersModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

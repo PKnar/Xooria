@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
 export class CheckoutSuccessComponent implements OnInit {
   order: IFinalOrder;
 
-  constructor(private router: Router) {
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation && navigation.extras && navigation.extras.state;
     if (state) {
       this.order = state as IFinalOrder;
+      console.log('cueckout success', this.order);
     }
   }
-
-  ngOnInit(): void {}
 }
