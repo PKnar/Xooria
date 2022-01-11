@@ -1,17 +1,8 @@
-// .featured {
-//   height: 250px;
-// }
-
-// img {
-//   background-position: cover;
-//   height: 600px;
-//   width: 100%;
-// }
-
 header {
   display: flex;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+
   .promo-img-wrapper {
     height: 100vh;
     width: 100%;
@@ -20,6 +11,7 @@ header {
     justify-content: center;
     position: absolute;
     z-index: 3;
+    overflow: hidden;
   }
 
   .main-img {
@@ -45,35 +37,48 @@ header {
   }
 
   .product-wrapper {
-    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 40%;
+    height: 100vh;
+    overflow: hidden;
 
     .product-info {
-      position: absolute;
-      z-index: 4;
-      background-color: white;
       padding: 2rem;
-      max-width: 400px;
+      height: 400px;
+      position: absolute;
+      z-index: 9;
+      width: 350px;
+      background-color: white;
+      overflow: hidden;
 
       h3 {
         font-weight: 800;
+        width: 300px;
         padding: 0.5rem;
         border-bottom: 1px solid black;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-size: 3rem;
       }
 
       .desc {
-        font-size: 12px;
+        font-size: 13px;
         text-align: left;
+        margin: 1.5rem 0;
+        width: 70%;
+        min-width: 300px;
+        max-width: 300px;
       }
 
-      .price {
-        font-weight: 500;
+      .buttons {
+        display: flex;
       }
+
       button {
-        padding: 0.5rem 1rem;
-        font-size: 14px;
+        padding: 0.8rem 1rem;
+        font-size: 12px;
       }
 
       .view {
@@ -95,32 +100,36 @@ header {
       }
     }
   }
-
-  .hero {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    h1 {
-      font-size: 10vw;
-      font-weight: bold;
-      color: rgba(199, 199, 199, 0.418);
-      transform: rotate(-90deg);
-    }
-
-    p {
-      text-transform: uppercase;
-      font-weight: bold;
-      color: rgba(199, 199, 199, 0.418);
-    }
-  }
 }
 
 a,
 button {
   cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .product-wrapper {
+    bottom: 0;
+    width: 100%;
+  }
+
+  .video-wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .video-wrapper {
+    background-image: url(../../assets/images/mobile-bg.webp);
+    width: 90% !important;
+    background-size: cover;
+  }
+
+  video {
+    display: none;
+  }
+
+  .promo-img-wrapper {
+    display: none !important;
+  }
 }

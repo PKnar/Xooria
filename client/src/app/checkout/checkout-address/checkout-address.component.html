@@ -1,37 +1,52 @@
-<div>
-    <div>
-        <h4>Shippping Address</h4>
-        <button [disabled]="!checkoutForm.get('addressForm').valid || !checkoutForm.get('addressForm').dirty"
-            (click)="saveDefaultAddress()">
-            Save as default address
-        </button>
+<div class="address-container">
 
-    </div>
     <div [formGroup]="checkoutForm">
+
         <div formGroupName="addressForm">
-            <div>
-                <app-text-inputs [label]="'FirstName'" formControlName="firstName"></app-text-inputs>
+            <div *ngIf="!edit ">
+                <h4 *ngIf="currentUserAddress">Customer Information</h4>
+                <div class="currentUserInfo" *ngIf="currentUserAddress">
+                    <p>{{currentUserAddress.firstName}} {{currentUserAddress.lastName }}</p>
+                    <p>{{currentUserAddress.street}}</p>
+                    <p>{{currentUserAddress.postalCode}}, {{currentUserAddress.city}}</p>
+
+                    <i (click)="handleEdit()" class="fa fa-edit"></i>
+                </div>
             </div>
-            <div>
-                <app-text-inputs [label]="'LastName'" formControlName="lastName"></app-text-inputs>
+
+
+            <div *ngIf="edit || !currentUserAddress" [formGroup]="checkoutForm">
+                <h4>Shipping Address</h4>
+                <div formGroupName="addressForm">
+                    <label>Name*</label>
+                    <app-text-inputs [label]="'FirstName'" formControlName="firstName"></app-text-inputs>
+                    <label>Lastname*</label>
+                    <app-text-inputs [label]="'LastName'" formControlName="lastName"></app-text-inputs>
+                    <label>Street*</label>
+                    <app-text-inputs [label]="'Street'" formControlName="street"></app-text-inputs>
+                    <label>City*</label>
+                    <app-text-inputs [label]="'City'" formControlName="city"></app-text-inputs>
+                    <label>Postal Code*</label>
+                    <app-text-inputs [label]="'PostalCode'" formControlName="postalCode"></app-text-inputs>
+                </div>
+
+                <button [disabled]="!checkoutForm.get('addressForm').valid || !checkoutForm.get('addressForm').dirty"
+                    (click)="saveDefaultAddress()">
+                    Save as default address
+                </button>
+                <button class="cancel" (click)="handleCancel()">
+                    Cancel
+                </button>
+
             </div>
-            <div>
-                <app-text-inputs [label]="'Street'" formControlName="street"></app-text-inputs>
-            </div>
-            <div>
-                <app-text-inputs [label]="'City'" formControlName="city"></app-text-inputs>
-            </div>
-            <div>
-                <app-text-inputs [label]="'PostalCode'" formControlName="postalCode"></app-text-inputs>
-            </div>
+
         </div>
 
+
+
     </div>
 
-
-</div>
-
-<div>
-    <button routerLink="/basket"><i class="fa fa-angle-left"></i> Back to Basket</button>
-    <button cdkStepperNext> Go to Review <i class="fa fa-angle-right"></i></button>
-</div>
+    <div>
+        <!-- <button routerLink="/basket"><i class="fa fa-angle-left"></i> Back to Basket</button>
+    <button cdkStepperNext> Go to Review <i class="fa fa-angle-right"></i></button> -->
+    </div>

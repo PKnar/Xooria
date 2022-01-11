@@ -1,10 +1,10 @@
 .product-card {
-  // border: 1px solid rgb(240, 240, 240);
-  border-radius: 25px;
+  border: 1px solid rgb(240, 240, 240);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  box-shadow: 2px 4px 9px -4px rgba(0, 0, 0, 0.61);
+  // box-shadow: 2px 4px 9px -4px rgba(0, 0, 0, 0.61);
 
   p {
     color: rgb(180, 179, 179);
@@ -22,7 +22,7 @@
 
   .img-wrapper {
     width: 100%;
-    height: 300px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +30,7 @@
   }
 
   img {
-    width: 90%;
+    width: 80%;
   }
 
   .price {

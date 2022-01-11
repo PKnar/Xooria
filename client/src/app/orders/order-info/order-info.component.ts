@@ -24,11 +24,14 @@ export class OrderInfoComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
 
-    this.ordersService
-      .getOrderInfo(+id)
-      .subscribe((order: IBasketProductInfo) => {
+    this.ordersService.getOrderInfo(+id).subscribe(
+      (order: IBasketProductInfo) => {
         this.order = order;
         this.breadcrumbService.set('@OrderInfo', `Order# ${order.id}`);
-      });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

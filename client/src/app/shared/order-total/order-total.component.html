@@ -13,17 +13,17 @@
         </li>
         <li>
 
-            <p>Shipping and handling</p>
-            <p> {{total.shipping |currency}}</p>
+            <p>Standard Shipping</p>
+            <p> {{2.99 |currency}}</p>
 
         </li>
 
         <li>
 
             <p>
-                Total
+                <strong>Total</strong>
             </p>
-            <p> {{total.total | currency}}</p>
+            <p><strong> {{total.total +2.99 | currency}}</strong></p>
 
         </li>
 

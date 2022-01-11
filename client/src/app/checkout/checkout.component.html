@@ -1,22 +1,33 @@
-<div class="content mt-5">
-    <div class="row">
-        <div class="col-8">
-            <app-stepper [linearModeSelected]="false" #appStepper>
-                <cdk-step [label]="'Address'" [completed]="(checkoutForm.get('addressForm')).valid">
-                    <app-checkout-address [checkoutForm]=" checkoutForm"></app-checkout-address>
-                </cdk-step>
-                <cdk-step [label]="'Review'">
-                    <app-checkout-review></app-checkout-review>
-                </cdk-step>
-                <cdk-step [label]="'Payment'">
-                    <app-checkout-payment [checkoutForm]="checkoutForm"></app-checkout-payment>
-                </cdk-step>
+<div class="checkout-page">
 
-            </app-stepper>
-        </div>
-        <div class="col-8">
+    <div class="checkout-page">
 
-            <app-order-total></app-order-total>
+        <div class="flex-wrapper">
+            <div>
+                <app-checkout-address class="address" [checkoutForm]=" checkoutForm"></app-checkout-address>
+
+            </div>
+
+            <div class="checkout-wrapper">
+
+                <app-order-total></app-order-total>
+                <app-checkout-payment [checkoutForm]=" checkoutForm"></app-checkout-payment>
+
+            </div>
         </div>
+
+
     </div>
-</div>
+
+    <!-- <app-stepper class="stepper" [linearModeSelected]="false" #appStepper>
+        <cdk-step class="step" [label]="'Address'" [completed]="(checkoutForm.get('addressForm')).valid">
+            <app-checkout-address [checkoutForm]=" checkoutForm"></app-checkout-address>
+        </cdk-step>
+        <cdk-step [label]="'Review'">
+            <app-checkout-review></app-checkout-review>
+        </cdk-step>
+        <cdk-step [label]="'Payment'">
+            <app-checkout-payment [checkoutForm]="checkoutForm"></app-checkout-payment>
+        </cdk-step>
+
+    </app-stepper> -->

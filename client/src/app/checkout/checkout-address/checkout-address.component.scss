@@ -1,0 +1,47 @@
+.address-container {
+  width: 100%;
+  padding: 2rem;
+
+  .cancel {
+    background-color: black;
+    color: white;
+  }
+
+  .currentUserInfo {
+    position: relative;
+
+    p {
+      font-size: 13px;
+      margin-bottom: 0.5rem;
+    }
+    i {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+  h4 {
+    margin: 2rem 0;
+  }
+
+  button {
+    border: 1px solid black;
+    padding: 1rem;
+    width: 100%;
+    background: transparent;
+    margin-top: 1rem;
+  }
+}
+label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+:host ::ng-deep input {
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}

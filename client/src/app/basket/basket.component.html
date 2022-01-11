@@ -1,21 +1,29 @@
-<div class="basket-page  flex-row">
-    <div *ngIf="(basket$ |async) ===null">
-        <p> No Items in the basket</p>
+<div class="basket-page ">
+    <div style="margin: 4rem;" *ngIf="(basket$ |async) ===null">
+        <p style="color: grey; font-size: 14px;"> No Items in the basket</p>
+    </div>
+    <h2>Shopping Bag</h2>
+
+    <div class="service-info">
+        <p>Standard delivery 2 days</p>
+        <p>Return within 30 days</p>
+        <p>Standard Shipping 2.99$</p>
+
     </div>
 
-    <div class="flex-row" *ngIf="basket$ | async">
+    <div class="flex-wrapper" *ngIf="basket$ | async">
 
-        <div class="flex-column products-wrapper" *ngIf="(basket$ |async) as basket">
-            <div class="flex-row">
 
-                <app-basket-summary (increment)="incrementProductQuantity($event)"
-                    (decrement)="decrementProductQuantity($event)" (delete)="removeBasketProduct($event)">
 
-                </app-basket-summary>
+        <div class="summary-container">
+            <app-basket-summary (increment)="incrementProductQuantity($event)"
+                (decrement)="decrementProductQuantity($event)" (delete)="removeBasketProduct($event)">
 
-            </div>
+            </app-basket-summary>
 
         </div>
+
+
 
         <div class="checkout-wrapper">
             <app-order-total></app-order-total>
