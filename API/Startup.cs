@@ -1,3 +1,4 @@
+using System.IO;
 using API.Extensions;
 using API.Helpers;
 using API.Middleware;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using StackExchange.Redis;
 
 namespace API
@@ -81,6 +83,13 @@ namespace API
             app.UseRouting();
 
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Media")
+                ),
+                RequestPath = "/media"
+            });
 
             app.UseCors("CorsPolicy");
 
@@ -93,6 +102,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("index", "Fallback");
             });
         }
     }

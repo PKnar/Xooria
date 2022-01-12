@@ -42,7 +42,7 @@ header {
     align-items: center;
     width: 40%;
     height: 100vh;
-    overflow: hidden;
+    position: relative;
 
     .product-info {
       padding: 2rem;
@@ -51,7 +51,6 @@ header {
       z-index: 9;
       width: 350px;
       background-color: white;
-      overflow: hidden;
 
       h3 {
         font-weight: 800;
@@ -107,21 +106,15 @@ button {
   cursor: pointer;
 }
 
-@media (max-width: 700px) {
-  .product-wrapper {
-    bottom: 0;
-    width: 100%;
+@media (max-width: 1200px) {
+  .product-info {
+    right: 0;
+    background-color: yellow;
   }
 
-  .video-wrapper {
-    width: 100%;
-  }
-}
-
-@media (max-width: 900px) {
   .video-wrapper {
     background-image: url(../../assets/images/mobile-bg.webp);
-    width: 90% !important;
+    width: 70% !important;
     background-size: cover;
   }
 

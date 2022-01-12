@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20211216180516_InitialCreateStore")]
+    [Migration("20220111223501_InitialCreateStore")]
     partial class InitialCreateStore
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,15 +27,8 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("CustomerEmail")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTimeOffset>("OrderDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OrderStatus")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PaymentIntenId")
-                        .HasColumnType("TEXT");
+                    b.Property<long>("OrderDate")
+                        .HasColumnType("INTEGER");
 
                     b.Property<double>("Subtotal")
                         .HasColumnType("REAL");
@@ -134,7 +127,7 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.OrderEntities.Order", b =>
                 {
-                    b.OwnsOne("Core.Entities.OrderEntities.OrderAddress", "ShipingAddress", b1 =>
+                    b.OwnsOne("Core.Entities.OrderEntities.OrderAddress", "ShippingAddress", b1 =>
                         {
                             b1.Property<int>("OrderId")
                                 .HasColumnType("INTEGER");
@@ -162,7 +155,7 @@ namespace Infrastructure.Data.Migrations
                                 .HasForeignKey("OrderId");
                         });
 
-                    b.Navigation("ShipingAddress");
+                    b.Navigation("ShippingAddress");
                 });
 
             modelBuilder.Entity("Core.Entities.OrderEntities.OrderItem", b =>
@@ -180,7 +173,7 @@ namespace Infrastructure.Data.Migrations
                             b1.Property<string>("PictureUrl")
                                 .HasColumnType("TEXT");
 
-                            b1.Property<int>("ProductItemId")
+                            b1.Property<int>("ProductId")
                                 .HasColumnType("INTEGER");
 
                             b1.Property<string>("ProductName")

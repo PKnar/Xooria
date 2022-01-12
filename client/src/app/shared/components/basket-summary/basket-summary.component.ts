@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { IBasketItem } from './../../models/basket';
 import { BasketService } from './../../../basket/basket.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class BasketSummaryComponent implements OnInit {
   basket$: Observable<IBasket>;
+  baseUrl = environment.apiUrl;
   @Output() decrement: EventEmitter<IBasketItem> =
     new EventEmitter<IBasketItem>();
   @Output() increment: EventEmitter<IBasketItem> =
@@ -26,6 +28,7 @@ export class BasketSummaryComponent implements OnInit {
   ngOnInit(): void {}
 
   decrementProductQuantity(item: IBasketItem) {
+    console.log(this.basket$);
     this.decrement.emit(item);
   }
 

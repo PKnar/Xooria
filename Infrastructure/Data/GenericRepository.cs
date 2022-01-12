@@ -22,7 +22,7 @@ namespace Infrastructure.Data
             return await this._context.Set<T>().FindAsync(id);
         }
 
-        public async Task<IReadOnlyList<T>> ListAllAync()
+        public async Task<List<T>> ListAllAync()
         {
             return await this._context.Set<T>().ToListAsync();
         }
@@ -32,7 +32,7 @@ namespace Infrastructure.Data
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
 
-        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+        public async Task<List<T>> ListAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
         }
@@ -61,5 +61,6 @@ namespace Infrastructure.Data
         {
             _context.Set<T>().Remove(entity);
         }
+
     }
 }

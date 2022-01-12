@@ -13,9 +13,6 @@ namespace Core.Entities
         public string Brand { get; set; }
         public string Type { get; set; }
 
-        public void Add(OrderItem orderItem)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

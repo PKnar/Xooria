@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
       this.accountService.loadCurrentUser(token).subscribe(
         () => {
           console.log('current user is active');
-          this.router.navigateByUrl('/shop');
+          this.router.navigateByUrl('/');
         },
         (error) => console.log(error)
       );

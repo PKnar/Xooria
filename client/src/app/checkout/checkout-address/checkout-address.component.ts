@@ -26,7 +26,6 @@ export class CheckoutAddressComponent implements OnInit {
   loadCurrentUserInfo() {
     this.accountService.getUserAddress().subscribe((userInfo) => {
       this.currentUserAddress = userInfo;
-      console.log(this.currentUserAddress);
     });
   }
 
@@ -44,6 +43,7 @@ export class CheckoutAddressComponent implements OnInit {
       .subscribe(
         () => {
           this.toaster.success("Address saved!");
+          this.loadCurrentUserInfo();
         },
         (error) => {
           this.toaster.error("Failed saving the address");
@@ -52,6 +52,5 @@ export class CheckoutAddressComponent implements OnInit {
       );
 
     this.edit = false;
-    this.loadCurrentUserInfo();
   }
 }

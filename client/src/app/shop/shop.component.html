@@ -41,7 +41,7 @@
 
 
 
-        <div class="shop">
+        <div class="shop" *ngIf="products">
             <div class="filters">
                 <div *ngIf="types && brands" class="selects-wrapper">
 
@@ -72,7 +72,7 @@
             </div>
 
             <div class="products">
-                <div *ngIf="products.length ===0">
+                <div *ngIf="!products.length">
                     <p>No Item was found</p>
                 </div>
                 <div class="product-card" *ngFor="let product of products">

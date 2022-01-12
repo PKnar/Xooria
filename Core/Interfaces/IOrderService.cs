@@ -10,7 +10,7 @@ namespace Core.Interfaces
     {
 
         Task<Order> CreateOrderAsync(string customerEmail, string basketId, OrderAddress shippingAddress);
-        Task<IReadOnlyList<Order>> GetOrdersAsync(string customerEmail);
+        Task<List<Order>> GetOrdersAsync(string customerEmail);
 
         Task<Order> GetOrderByIdAsync(int id, string customerEmail);
 

@@ -11,10 +11,10 @@ namespace Core.Entities.OrderEntities
         {
         }
 
-        public Order(IReadOnlyList<OrderItem> orderItems, string customerEmail, OrderAddress shipingAddress, decimal subtotal)
+        public Order(List<OrderItem> orderItems, string customerEmail, OrderAddress shippingAddress, decimal subtotal)
         {
             CustomerEmail = customerEmail;
-            ShipingAddress = shipingAddress;
+            ShippingAddress = shippingAddress;
             OrderItems = orderItems;
             Subtotal = subtotal;
 
@@ -23,16 +23,8 @@ namespace Core.Entities.OrderEntities
 
         public string CustomerEmail { get; set; }
         public DateTimeOffset OrderDate { get; set; } = DateTimeOffset.Now;
-        public OrderAddress ShipingAddress { get; set; }
+        public OrderAddress ShippingAddress { get; set; }
         public IReadOnlyList<OrderItem> OrderItems { get; set; }
         public decimal Subtotal { get; set; }
-
-        public OrderStatus OrderStatus { get; set; } = OrderStatus.Pending;
-
-        public string PaymentIntenId { get; set; }
-        public decimal GetTotal()
-        {
-            return Subtotal + 5;
-        }
     }
 }

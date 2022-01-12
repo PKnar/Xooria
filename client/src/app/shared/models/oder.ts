@@ -4,7 +4,7 @@ export interface IFinalOrder {
   shippingAddress: IAddress;
 }
 export interface IOrderProductInfo {
-  productItemId: number;
+  productId: number;
   productName: string;
   pictureUrl: string;
 }
@@ -20,9 +20,7 @@ export interface IOrderedItems {
   id: number;
   customerEmail: string;
   orderDate: Date;
-  shipingAddress: IAddress;
+  shippingAddress: IAddress;
   orderItems: IBasketProductInfo[];
   subtotal: number;
-  orderStatus: number;
-  paymentIntenId: string;
 }

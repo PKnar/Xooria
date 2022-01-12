@@ -1,1 +1,93 @@
-<p>order-info works!</p>
+<div class="basket-page " *ngIf="order">
+    <h2>Order Details # {{order.id}}</h2>
+
+    <div class="service-info">
+        <p>Standard delivery 2 days</p>
+        <p>Return within 30 days</p>
+        <p>Standard Shipping 2.99$</p>
+
+    </div>
+
+    <div style="margin: 4rem;" *ngIf="!order">
+        <p style="color: grey; font-size: 14px;"> No Items in the basket</p>
+
+    </div>
+
+    <div class="flex-wrapper" *ngIf="order">
+
+
+
+        <div class="summary-container">
+            <div class="user-info">
+                <h4>Customer Information</h4>
+                <div class="currentUserInfo">
+                    <p>{{order.customerEmail}}</p>
+                    <p>{{order.shippingAddress.firstName}}{{order.shippingAddress.lastName}}</p>
+                    <p>{{order.shippingAddress.street}}</p>
+                    <p>{{order.shippingAddress.postalCode}}, {{order.shippingAddress.city}}</p>
+                </div>
+            </div>
+            <div class="product-info-wrapper " *ngFor="let item of order.orderItems">
+                <img src="{{item.pictureUrl}}" alt="{{item.productName}}">
+
+                <div class="product-info">
+                    <a class="product-name" routerLink="/shop/{{item.id}}">{{item.productName}}</a>
+                    <p class="price">
+                        {{item.price | currency}}
+                    </p>
+                    <div class="quantity-wrapper">
+                        <p> Quantity: {{item.quantity}}</p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="checkout-wrapper">
+            <div class="subtotal-wrapper">
+
+                <h3>
+                    Order History
+                </h3>
+
+                <ul>
+                    <li>
+
+                        <p> Subtotal</p>
+                        <p> {{order.subtotal | currency}}</p>
+
+                    </li>
+                    <li>
+
+                        <p>Standard Shipping</p>
+                        <p> {{2.99 |currency}}</p>
+
+                    </li>
+
+                    <li>
+
+                        <p>
+                            <strong>Total</strong>
+                        </p>
+                        <p><strong> {{order.subtotal +2.99 | currency}}</strong></p>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>

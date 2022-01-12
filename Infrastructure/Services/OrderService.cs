@@ -29,9 +29,9 @@ namespace Infrastructure.Services
 
             foreach (var item in basket.Items)
             {
-                var productItem = await unitWork.Repository<Product>().GetByIdAsync(item.Id);
-                var itemOrdered = new ProductOrdered(productItem.Id, productItem.Name, productItem.PictureUrl);
-                var orderItem = new OrderItem(itemOrdered, productItem.Price, item.Quantity);
+                var product = await unitWork.Repository<Product>().GetByIdAsync(item.Id);
+                var itemOrdered = new ProductOrdered(product.Id, product.Name, product.PictureUrl);
+                var orderItem = new OrderItem(itemOrdered, product.Price, item.Quantity);
                 products.Add(orderItem);
             }
 
@@ -51,6 +51,8 @@ namespace Infrastructure.Services
 
             await basketRepo.DeleteBasketAsync(basketId);
 
+
+
             return order;
 
         }
@@ -63,7 +65,7 @@ namespace Infrastructure.Services
             return await unitWork.Repository<Order>().GetEntityWithSpec(spec);
         }
 
-        public async Task<IReadOnlyList<Order>> GetOrdersAsync(string customerEmail)
+        public async Task<List<Order>> GetOrdersAsync(string customerEmail)
         {
             var spec = new OrdersSpecification(customerEmail);
             return await unitWork.Repository<Order>().ListAsync(spec);

@@ -27,7 +27,7 @@ namespace API.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult<Order>> CreateOrder(OrderDto orderDto)
+        public async Task<ActionResult<OrderDto>> CreateOrder(OrderDto orderDto)
         {
             var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
             var address = mapper.Map<AddressDto, OrderAddress>(orderDto.ShippingAddress);
@@ -36,24 +36,26 @@ namespace API.Controllers
 
             if (order == null)
             {
-                return BadRequest(new ApiResponse(400, "Problem with creating the order"));
+                return BadRequest(new ApiResponse(400, "Error: Unable to create the order"));
             }
+
             return Ok(order);
 
         }
 
         [HttpGet]
 
-        public async Task<ActionResult<IReadOnlyList<Order>>> GetOrders()
+        public async Task<ActionResult<IReadOnlyList<OrderDto>>> GetOrders()
         {
             var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
             var orders = await orderService.GetOrdersAsync(email);
-            return Ok(orders);
+
+            return Ok(mapper.Map<List<OrderFormattedDto>>(orders));
         }
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult<Order>> GetOrderById(int id)
+        public async Task<ActionResult<OrderFormattedDto>> GetOrderById(int id)
         {
             var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
             var order = await orderService.GetOrderByIdAsync(id, email);
@@ -63,7 +65,7 @@ namespace API.Controllers
                 return NotFound(new ApiResponse(404));
             }
 
-            return order;
+            return mapper.Map<OrderFormattedDto>(order);
         }
 
 

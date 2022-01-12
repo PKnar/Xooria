@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Data.Migrations
 {
@@ -14,15 +13,13 @@ namespace Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CustomerEmail = table.Column<string>(type: "TEXT", nullable: true),
-                    OrderDate = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
-                    ShipingAddress_FirstName = table.Column<string>(type: "TEXT", nullable: true),
-                    ShipingAddress_LastName = table.Column<string>(type: "TEXT", nullable: true),
-                    ShipingAddress_Street = table.Column<string>(type: "TEXT", nullable: true),
-                    ShipingAddress_City = table.Column<string>(type: "TEXT", nullable: true),
-                    ShipingAddress_PostalCode = table.Column<string>(type: "TEXT", nullable: true),
-                    Subtotal = table.Column<double>(type: "REAL", nullable: false),
-                    OrderStatus = table.Column<string>(type: "TEXT", nullable: false),
-                    PaymentIntenId = table.Column<string>(type: "TEXT", nullable: true)
+                    OrderDate = table.Column<long>(type: "INTEGER", nullable: false),
+                    ShippingAddress_FirstName = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAddress_LastName = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAddress_Street = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAddress_City = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAddress_PostalCode = table.Column<string>(type: "TEXT", nullable: true),
+                    Subtotal = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -35,7 +32,7 @@ namespace Infrastructure.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    OrderedProduct_ProductItemId = table.Column<int>(type: "INTEGER", nullable: true),
+                    OrderedProduct_ProductId = table.Column<int>(type: "INTEGER", nullable: true),
                     OrderedProduct_ProductName = table.Column<string>(type: "TEXT", nullable: true),
                     OrderedProduct_PictureUrl = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<double>(type: "decimal(18,2)", nullable: false),

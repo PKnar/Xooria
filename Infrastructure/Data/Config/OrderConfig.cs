@@ -11,16 +11,12 @@ namespace Infrastructure.Data.Config
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Order> builder)
         {
-            builder.OwnsOne(o => o.ShipingAddress, a =>
+            builder.OwnsOne(o => o.ShippingAddress, a =>
             {
                 a.WithOwner();
             });
 
-            builder.Property(s => s.OrderStatus)
-            .HasConversion(
-                o => o.ToString(),
-                o => (OrderStatus)Enum.Parse(typeof(OrderStatus), o)
-            );
+
 
             //ensure that when customer deletes the order
             //it deletes the items aswell

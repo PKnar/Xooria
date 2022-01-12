@@ -4,6 +4,7 @@ import { OrdersService } from './../orders.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IFinalOrder } from 'src/app/shared/models/oder';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-order-info',
@@ -27,6 +28,7 @@ export class OrderInfoComponent implements OnInit {
     this.ordersService.getOrderInfo(+id).subscribe(
       (order: IBasketProductInfo) => {
         this.order = order;
+        console.log(order, 'order');
         this.breadcrumbService.set('@OrderInfo', `Order# ${order.id}`);
       },
       (error) => {

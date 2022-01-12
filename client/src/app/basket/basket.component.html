@@ -1,13 +1,15 @@
 <div class="basket-page ">
-    <div style="margin: 4rem;" *ngIf="(basket$ |async) ===null">
-        <p style="color: grey; font-size: 14px;"> No Items in the basket</p>
-    </div>
     <h2>Shopping Bag</h2>
 
     <div class="service-info">
         <p>Standard delivery 2 days</p>
         <p>Return within 30 days</p>
         <p>Standard Shipping 2.99$</p>
+
+    </div>
+
+    <div style="margin: 4rem;" *ngIf="(basket$ |async) ===null">
+        <p style="color: grey; font-size: 14px;"> No Items in the basket</p>
 
     </div>
 

@@ -14,14 +14,14 @@ namespace Core.Entities.OrderEntities
         {
         }
 
-        public ProductOrdered(int productItemId, string productName, string pictureUrl)
+        public ProductOrdered(int productId, string productName, string pictureUrl)
         {
-            ProductItemId = productItemId;
+            ProductId = productId;
             ProductName = productName;
             PictureUrl = pictureUrl;
         }
 
-        public int ProductItemId { get; set; }
+        public int ProductId { get; set; }
         public string ProductName { get; set; }
 
         public string PictureUrl { get; set; }

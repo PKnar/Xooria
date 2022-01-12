@@ -1,21 +1,24 @@
-<h1>Orders work</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Order</th>
-            <th>Date</th>
-            <th>Total</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let order of orders" routerLink="/orders/{{order.id}}">
+<div class="orders-page">
+    <h2>Orders History</h2>
+    <table *ngIf="orders">
+        <thead>
+            <tr>
+                <th>Order</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Details</th>
 
-            <th># {{order.id}}</th>
-            <td>{{order.orderDate | date:"medium"}}</td>
-            <td>{{order.total}}</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders" routerLink="/orders/{{order.id}}">
 
+                <td> <strong># {{order.id}}</strong></td>
+                <td>{{order.orderDate | date:"medium"}}</td>
+                <td>{{order.subtotal | currency}}</td>
+                <td routerLink="/orders/{{order.id}}">>View Details</td>
 
-        </tr>
-    </tbody>
-</table>
+            </tr>
+        </tbody>
+    </table>
+</div>
