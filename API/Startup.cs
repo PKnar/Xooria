@@ -32,12 +32,12 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<StoreContext>(x =>
-            x.UseSqlite(_config.GetConnectionString("DefaultsConnection")));
+            x.UseNpgsql(_config.GetConnectionString("DefaultsConnection")));
 
             //Identity config
             services.AddDbContext<AuthIdentityDbContext>(x =>
             {
-                x.UseSqlite(_config.GetConnectionString("IdentityConnection"));
+                x.UseNpgsql(_config.GetConnectionString("IdentityConnection"));
             });
 
             //Redis config

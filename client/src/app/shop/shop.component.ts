@@ -1,7 +1,7 @@
-import { ShopParams } from "../shared/models/shopParams";
-import { IType } from "./../shared/models/productType";
-import { IBrand } from "./../shared/models/brands";
-import { IProduct } from "../shared/models/product";
+import { ShopParams } from '../shared/models/shopParams';
+import { IType } from './../shared/models/productType';
+import { IBrand } from './../shared/models/brands';
+import { IProduct } from '../shared/models/product';
 
 import {
   Component,
@@ -10,18 +10,18 @@ import {
   QueryList,
   ViewChild,
   ViewChildren,
-} from "@angular/core";
-import { ShopService } from "./shop.service";
+} from '@angular/core';
+import { ShopService } from './shop.service';
 
 @Component({
-  selector: "app-shop",
-  templateUrl: "./shop.component.html",
-  styleUrls: ["./shop.component.scss"],
+  selector: 'app-shop',
+  templateUrl: './shop.component.html',
+  styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
-  @ViewChild("search") searchTerm: ElementRef;
-  @ViewChildren("brandListItem") brandListItems: QueryList<ElementRef>;
-  @ViewChildren("typeListItem") typeListItems: QueryList<ElementRef>;
+  @ViewChild('search') searchTerm: ElementRef;
+  @ViewChildren('brandListItem') brandListItems: QueryList<ElementRef>;
+  @ViewChildren('typeListItem') typeListItems: QueryList<ElementRef>;
 
   products: IProduct[];
   brands: IBrand[];
@@ -30,16 +30,16 @@ export class ShopComponent implements OnInit {
   totalCount: number;
   sortOptions = [
     {
-      name: "Alphabetical",
-      value: "name",
+      name: 'Alphabetical',
+      value: 'name',
     },
     {
-      name: "Price:Low to High",
-      value: "priceAsc",
+      name: 'Price:Low to High',
+      value: 'priceAsc',
     },
     {
-      name: "Price: High to Low",
-      value: "priceDesc",
+      name: 'Price: High to Low',
+      value: 'priceDesc',
     },
   ];
 
@@ -53,13 +53,13 @@ export class ShopComponent implements OnInit {
 
   handleFilterSelection(target, filterOption) {
     let items =
-      filterOption === "brands" ? this.brandListItems : this.typeListItems;
+      filterOption === 'brands' ? this.brandListItems : this.typeListItems;
 
     items.forEach((item) => {
-      item.nativeElement.classList.remove("bgColor");
+      item.nativeElement.classList.remove('bgColor');
     });
 
-    target.classList.add("bgColor");
+    target.classList.add('bgColor');
   }
 
   getProducts() {
@@ -79,7 +79,7 @@ export class ShopComponent implements OnInit {
   getBrands() {
     this.shopService.getBrands().subscribe(
       (response) => {
-        this.brands = [{ id: 0, name: "All" }, ...response];
+        this.brands = [{ id: 0, name: 'All' }, ...response];
       },
       (error) => {
         console.log(error);
@@ -90,7 +90,7 @@ export class ShopComponent implements OnInit {
   getTypes() {
     this.shopService.getTypes().subscribe(
       (response) => {
-        this.types = [{ id: 0, name: "All" }, ...response];
+        this.types = [{ id: 0, name: 'All' }, ...response];
       },
       (error) => {
         console.log(error);
@@ -99,17 +99,16 @@ export class ShopComponent implements OnInit {
   }
 
   onBrandSelected(brandId: number, target?) {
-    console.log(brandId, target);
     this.shopParams.brandId = brandId;
     this.shopParams.pageNumber = 1;
-    target && this.handleFilterSelection(target, "brands");
+    target && this.handleFilterSelection(target, 'brands');
     this.getProducts();
   }
 
-  onTypeSelected(typeId: number, target?, filterOption?) {
+  onTypeSelected(typeId: number, target?) {
     this.shopParams.typeId = typeId;
     this.shopParams.pageNumber = 1;
-    target && filterOption && this.handleFilterSelection(target, "types");
+    target && this.handleFilterSelection(target, 'types');
 
     this.getProducts();
   }
@@ -132,11 +131,19 @@ export class ShopComponent implements OnInit {
   }
 
   onSearch() {
+    this.shopParams = new ShopParams();
     this.shopParams.search = this.searchTerm.nativeElement.value;
     this.getProducts();
   }
+
+  onSearchInput(value: string) {
+    if (!value) {
+      this.onSearchReset();
+    }
+  }
+
   onSearchReset() {
-    this.searchTerm.nativeElement.value = "";
+    this.searchTerm.nativeElement.value = '';
     this.shopParams = new ShopParams();
     this.getProducts();
   }

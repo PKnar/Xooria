@@ -18,7 +18,7 @@
 
 
             </div>
-            <video [muted]="true" and [autoplay]="true">
+            <video [muted]="true" and [autoplay]="true" [loop]="true">
                 <source type="video/mp4"
                     src="../../assets/videos/My Shelter -  Asian Kpop Idol for Adidas Original.mp4" />
             </video>
@@ -39,7 +39,7 @@
                 <div class="buttons">
 
                     <button class="view"><a>View Product</a></button>
-                    <button class="explore"><a (click)="handleClick($event)" routerLink="/shop">Explore
+                    <button class="explore"><a routerLink="/shop">Explore
                             More</a></button>
                 </div>
 
@@ -49,5 +49,78 @@
         </div>
 
     </header>
+
+    <section class="value-prop-section">
+        <div class="flex-div">
+            <div class="images-wrapper">
+                <div>
+                    <img class="nike" src='../../assets/images/promos/nike-promo.jpg'>
+                    <img class="adidas" src='../../assets/images/promos/adidas-promo.jpg'>
+
+                </div>
+                <div>
+                    <img class="puma" src='../../assets/images/promos/puma-promo.jpg'>
+                    <img class="vans" src='../../assets/images/promos/vans-promo.jpg'>
+
+                </div>
+
+
+            </div>
+            <div class="value-prop">
+                <div class="parent">
+                    <h3>Your Favourite Brands Under One Roof</h3>
+                    <p class="desc">Xooria offers the largest range of sneakers, clothing and accessories. Add new
+                        stylish
+                        and
+                        comfortable pieces to your woardrop
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="featured-section">
+        <h3>Featured Items</h3>
+        <div class="items" *ngIf="products">
+            <div class="item-wrapper" *ngFor="let item of products">
+                <div style="cursor: pointer;" routerLink="/shop/{{item.id}}" class="item">
+                    <div class="img-wrapper">
+                        <img style="cursor: pointer;" routerLink="/shop/{{item.id}}" src="{{item.pictureUrl}}">
+                    </div>
+
+                    <p>{{item.productBrand}}</p>
+                    <h6 style="cursor: pointer;" routerLink="/shop/{{item.id}}">{{item.name}}</h6>
+                    <p>{{item.price | currency}}</p>
+                </div>
+                <div class="white-bg">
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="brands-section">
+        <div class="wrapper">
+            <div class="brand nike">
+                <button>Shop Nike</button>
+            </div>
+            <div class="brand adidas">
+                <button>Shop Adidas </button>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="brand vans"> <button>Shop Vans </button></div>
+            <div class="brand puma"> <button>Shop Puma </button></div>
+        </div>
+
+    </section>
+
+
 
 </main>

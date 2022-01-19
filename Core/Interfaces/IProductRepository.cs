@@ -18,7 +18,7 @@ namespace Core.Interfaces
          So, an interface is nothing but a collection 
          of method and property declarations. */
 
-        /* this will be use by ProductRepository class
+        /* this will be used by ProductRepository class
          which will commnicate with the database and 
          handle data requests, so interfaces just  
          represent the Infra Repositories structure,

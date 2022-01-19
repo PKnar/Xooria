@@ -1,8 +1,10 @@
+import { ShopParams } from './../../shared/models/shopParams';
+import { environment } from 'src/environments/environment';
+import { ShopService } from './../shop.service';
 import { BasketService } from './../../basket/basket.service';
 import { IProduct } from '../../shared/models/product';
 import { Component, OnInit } from '@angular/core';
-import { ShopService } from '../shop.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -13,12 +15,16 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 export class ProductDetailsComponent implements OnInit {
   product: IProduct;
   quantity = 1;
+  baseUrl = environment.apiUrl;
+  products: IProduct[];
+  shopParams = new ShopParams();
 
   constructor(
-    private shopService: ShopService,
     private activatedRute: ActivatedRoute,
     private brandcrumbService: BreadcrumbService,
-    private basketService: BasketService
+    private basketService: BasketService,
+    private shopService: ShopService,
+    private router: Router
   ) {
     //Makes sure the product info/number is not show during loading
     this.brandcrumbService.set('productDetails', '');
@@ -26,6 +32,20 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSingleProduct();
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.shopService.getProducts(this.shopParams).subscribe(
+      (response) => {
+        this.products = response.data.filter(
+          (item) => item.productType === 'Hoodies'
+        );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   addProductToBasket() {
@@ -51,5 +71,13 @@ export class ProductDetailsComponent implements OnInit {
       },
       (error) => console.log(error)
     );
+  }
+
+  handleSuggestionClick(item) {
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree([`/shop/${item.id}`])
+    );
+
+    window.open(url, '_blank');
   }
 }

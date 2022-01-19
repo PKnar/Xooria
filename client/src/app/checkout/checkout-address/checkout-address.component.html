@@ -34,7 +34,8 @@
                     (click)="saveDefaultAddress()">
                     Save as default address
                 </button>
-                <button class="cancel" (click)="handleCancel()">
+                <button [disabled]="!checkoutForm.get('addressForm').valid || !checkoutForm.get('addressForm').dirty"
+                    class="cancel" (click)="handleCancel()">
                     Cancel
                 </button>
 

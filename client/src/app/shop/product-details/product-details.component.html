@@ -30,3 +30,30 @@
 
 
 </div>
+<section class="featured-section">
+    <h3>You May Also Like</h3>
+
+    <div class="items" *ngIf="products">
+        <div class="item-wrapper" *ngFor="let item of products">
+
+            <div (click)="handleSuggestionClick(item)" style="cursor: pointer;" class="item">
+                <div class="img-wrapper">
+                    <img style="cursor: pointer;" src="{{item.pictureUrl}}">
+                </div>
+
+                <div class="info">
+                    <p>{{item.productBrand}}</p>
+                    <h6 style="cursor: pointer;">{{item.name}}</h6>
+                    <p>{{item.price | currency}}</p>
+                </div>
+
+            </div>
+
+
+            <div class="white-bg">
+
+            </div>
+        </div>
+
+    </div>
+</section>

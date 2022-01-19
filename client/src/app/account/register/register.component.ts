@@ -1,6 +1,6 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AccountService } from './../account-service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -17,20 +17,61 @@ import { map, switchMap } from 'rxjs/operators';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('passValidList') passValidList: ElementRef;
+  returnUrl: string;
   registerForm: FormGroup;
   errors: Array<string>;
+  validation = {
+    uppercase: false,
+    lowercase: false,
+    number: false,
+    character: false,
+    strength: 0,
+  };
 
-  constructor(private accountService: AccountService, private router: Router) {}
+  constructor(
+    private accountService: AccountService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    // this.returnUrl =
+    //   this.activatedRoute.snapshot.queryParams.returnUrl || '/shop';
     this.createRegisterForm();
+  }
+
+  handlePassChange(event) {
+    let value = event.target.value;
+    this.validation.strength = value.length;
+
+    if (value.match(/[A-Z]/)) {
+      this.validation.uppercase = true;
+    } else {
+      this.validation.uppercase = false;
+    }
+    if (value.match(/[a-z]/)) {
+      this.validation.lowercase = true;
+    } else {
+      this.validation.lowercase = false;
+    }
+    if (value.match(/[0-9]/)) {
+      this.validation.number = true;
+    } else {
+      this.validation.number = false;
+    }
+    if (value.match(/[!&$?{}\/\/]/)) {
+      this.validation.character = true;
+    } else {
+      this.validation.character = false;
+    }
   }
 
   onSubmit() {
     this.accountService.register(this.registerForm.value).subscribe(
-      (res) => {
-        console.log(res);
-        this.router.navigateByUrl('/shop');
+      () => {
+        const { redirect } = window.history.state;
+        this.router.navigateByUrl(redirect || '/shop');
       },
       (error) => {
         console.log(error);

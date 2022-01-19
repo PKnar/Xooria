@@ -12,7 +12,7 @@
     height: 100vh;
 
     button {
-      margin: 2rem 0;
+      margin: 1rem 0;
       padding: 1rem;
       width: 350px;
       border-radius: 5px;
@@ -48,6 +48,22 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+}
+
+.valid-password-list {
+  margin-top: 1rem;
+  ul {
+    margin-left: 1rem;
+  }
+  li {
+    font-size: 11px;
+    margin-top: 0.3rem;
+    color: black;
+  }
+}
+
+.show {
+  display: block;
 }
 
 @media (max-width: 900px) {

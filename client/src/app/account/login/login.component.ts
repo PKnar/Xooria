@@ -1,7 +1,9 @@
-import { Router, ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { AccountService } from './../account-service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -11,16 +13,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   returnUrl: string;
+  errorMessage: string;
+  currentUser = {};
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
-    this.returnUrl =
-      this.activatedRoute.snapshot.queryParams.returnUrl || '/shop';
+    // this.returnUrl =
+    //   this.activatedRoute.snapshot.queryParams.returnUrl || '/shop';
     this.createLoginForm();
   }
 
@@ -39,10 +44,11 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.accountService.login(this.loginForm.value).subscribe(
       () => {
-        this.router.navigateByUrl(this.returnUrl);
+        const { redirect } = window.history.state;
+        this.router.navigateByUrl(redirect || '/shop');
       },
       (error) => {
-        console.log(error);
+        this.errorMessage = 'User does not exist';
       }
     );
   }

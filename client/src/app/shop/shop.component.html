@@ -1,12 +1,10 @@
 <section>
-    <div class="search-wrapper">
-        <input (keyup.enter)="onSearch()" #search placeholder="Search...">
-        <!-- <button (click)="onSearchReset()">Reset</button> -->
+    <div (keyup.enter)="onSearch()" class="search-wrapper">
+        <input (input)="onSearchInput($event.target.value)" #search placeholder="Search...">
+        <button (click)="onSearchReset()"><i class="fa fa-times"></i></button>
     </div>
 
     <div class="wrapper-flex-column">
-
-
         <div class=" wrapper-flex-row mobile-result-and-filter">
             <app-pagination-header class="pagination-header" [totalCount]="totalCount"
                 [pageSize]="this.shopParams.pageSize" [pageNumber]="this.shopParams.pageNumber">
@@ -54,16 +52,21 @@
                         <li>
                             <strong>Brands</strong>
                         </li>
-                        <li #brandListItem *ngFor="let brand of brands"
+                        <li class="bgColor" #brandListItem (click)="onBrandSelected(brands[0].id,$event.target)"
+                            aria-current="true">All
+                        </li>
+                        <li #brandListItem *ngFor="let brand of brands.slice(1)"
                             (click)="onBrandSelected(brand.id,$event.target)" aria-current="true">
                             {{brand.name}}</li>
 
                     </ul>
                     <ul>
                         <li><strong>Categories</strong></li>
+                        <li class="bgColor" #typeListItem (click)="onTypeSelected(types[0].id,$event.target)"
+                            aria-current="true">All</li>
                         <!--Properties are wrapped by square brackets [], events are wrapped with ()-->
-                        <li #typeListItem *ngFor="let type of types" (click)="onTypeSelected(type.id,$event.target)"
-                            aria-current="true">
+                        <li #typeListItem *ngFor="let type of types.slice(1)"
+                            (click)="onTypeSelected(type.id,$event.target)" aria-current="true">
                             {{type.name}}
                         </li>
                     </ul>
@@ -80,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="" *ngIf="totalCount > 0">
+        <div class="bottom-pagination" *ngIf="totalCount > 0">
             <app-pagination [pageSize]="shopParams.pageSize" [totalCount]="totalCount"
                 (pageChanged)="onPageChanged($event)"></app-pagination>
         </div>

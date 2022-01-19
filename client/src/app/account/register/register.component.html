@@ -5,14 +5,38 @@
             <p class="message">Please Register to Continue </p>
             <app-text-inputs formControlName="username" [label]="'Username'"></app-text-inputs>
             <app-text-inputs formControlName="email" [label]="'Email Address'"></app-text-inputs>
-            <app-text-inputs formControlName="password" [type]="'Password'" [label]="'Password'"></app-text-inputs>
+            <app-text-inputs (input)="handlePassChange($event)" formControlName="password" [type]="'Password'"
+                [label]="'Password'">
+            </app-text-inputs>
+            <p *ngIf="errors " style="color:red;font-size:11px;margin: 0.5rem;"> Please does not meet the
+                requirenments
+            </p>
+            <div #passValidList class="valid-password-list">
+                <h6>Password should include atleast</h6>
+                <ul [ngStyle]="{'color': errors ? 'red' : 'black'}">
+                    <li
+                        [ngStyle]="validation.uppercase ? {'color': 'green', 'font-weight': 'bold'} : {'color':'black'}">
+                        One uppercase
+                        letter</li>
+                    <li
+                        [ngStyle]="validation.lowercase ? {'color': 'green', 'font-weight': 'bold'} : {'color':'black'}">
+                        One lowercase letter</li>
+                    <li [ngStyle]="validation.number ? {'color': 'green', 'font-weight': 'bold'} : {'color':'black'}">
+                        One Number </li>
+                    <li
+                        [ngStyle]="validation.character ? {'color': 'green', 'font-weight': 'bold'} : {'color':'black'}">
+                        One of these special Character
+                        ! & ? $
+                    </li>
+                    <li
+                        [ngStyle]="validation.strength>=8 ? {'color': 'green', 'font-weight': 'bold'} : {'color':'black'}">
+                        And be 8 characters
+                        long</li>
+                </ul>
+            </div>
 
 
-            <ul class="text-danger">
-                <li *ngFor="let error of errors">
-                    {{error}}
-                </li>
-            </ul>
+
 
             <button [disabled]="registerForm.invalid">Register</button>
             <hr>

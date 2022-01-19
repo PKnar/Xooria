@@ -26,13 +26,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.getBasket();
     this.getCurrentUser();
-
-    //    this.http.get("https://localhost:5001/api/products")
-    //    .subscribe((response:IPagination)=>{
-    //      this.products= response.data
-    //    },error=>{
-    //      console.log(error)
-    //    })
   }
 
   getBasket() {
@@ -54,8 +47,8 @@ export class AppComponent implements OnInit {
     if (token) {
       this.accountService.loadCurrentUser(token).subscribe(
         () => {
-          console.log('current user is active');
-          this.router.navigateByUrl('/');
+          const { redirect } = window.history.state;
+          this.router.navigateByUrl(redirect || '/shop');
         },
         (error) => console.log(error)
       );

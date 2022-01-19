@@ -11,6 +11,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BasketSummaryComponent } from './components/basket-summary/basket-summa
     TextInputsComponent,
     StepperComponent,
     BasketSummaryComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import { BasketSummaryComponent } from './components/basket-summary/basket-summa
     CdkStepperModule,
     StepperComponent,
     BasketSummaryComponent,
+    FooterComponent,
   ],
 })
 export class SharedModule {}

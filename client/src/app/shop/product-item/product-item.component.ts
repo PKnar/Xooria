@@ -1,3 +1,6 @@
+import { ShopService } from './../shop.service';
+import { ShopParams } from './../../shared/models/shopParams';
+import { environment } from 'src/environments/environment';
 import { BasketService } from '../../basket/basket.service';
 import { IProduct } from '../../shared/models/product';
 import { Component, Input, OnInit } from '@angular/core';

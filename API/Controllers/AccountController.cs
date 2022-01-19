@@ -43,7 +43,7 @@ namespace API.Controllers
             var user = await this.userManager.FindByEmailAsync(loginDto.Email);
             if (user == null)
             {
-                return Unauthorized(new ApiResponse(401));
+                return new BadRequestObjectResult(new ApiValidationError { Errors = new[] { "User does not exist" } });
             }
 
             var result = await this.signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);

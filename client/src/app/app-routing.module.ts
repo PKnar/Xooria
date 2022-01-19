@@ -10,7 +10,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 //meaning the Shop component is loaded only
 //when /shop route is visited
 //since app-routing and shop-routing are now
-//loading the shop component, it's no longer
+//loading the shop component, it no longer
 //needs to be exported from shop and imported in app modules
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },

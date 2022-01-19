@@ -17,7 +17,6 @@ export class CheckoutSuccessComponent implements OnInit {
     const state = navigation && navigation.extras && navigation.extras.state;
     if (state) {
       this.order = state as IFinalOrder;
-      console.log('cueckout success', this.order);
     }
   }
 }

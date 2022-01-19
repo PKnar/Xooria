@@ -1,7 +1,7 @@
 header {
   display: flex;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 
   .promo-img-wrapper {
     height: 100vh;
@@ -106,10 +106,203 @@ button {
   cursor: pointer;
 }
 
+.value-prop-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  padding: 3rem 2rem;
+  flex-wrap: nowrap;
+  overflow: hidden;
+
+  .flex-div {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .images-wrapper,
+  .value-prop {
+    min-width: 350px;
+  }
+
+  .images-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    position: relative;
+    min-height: 500px;
+
+    img {
+      width: 200px;
+      -webkit-box-shadow: -1px 5px 15px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: -1px 5px 15px 5px rgba(0, 0, 0, 0.2);
+    }
+    .nike {
+      width: 250px;
+    }
+
+    .adidas {
+      transform: translate(-7.8rem, 7rem);
+      position: absolute;
+      z-index: 3;
+      width: 250px;
+    }
+
+    .puma {
+      transform: translate(-5rem);
+    }
+
+    .vans {
+      transform: translate(-6rem, 6rem);
+      position: absolute;
+      z-index: 2;
+    }
+  }
+
+  .value-prop {
+    padding: 2rem;
+    width: 50%;
+    height: 400px;
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    justify-content: center;
+    background-color: white;
+    right: 0;
+
+    h3 {
+      font-weight: 800;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      width: 300px;
+      border-bottom: 1px solid black;
+    }
+
+    .desc {
+      font-size: 16px;
+      text-align: left;
+      margin: 1.5rem 0;
+      max-width: 60%;
+      min-width: 250px;
+    }
+  }
+}
+
+.featured-section {
+  text-align: center;
+  h3 {
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+  }
+
+  h6 {
+    margin: 0.5rem 0;
+  }
+  p {
+    color: grey;
+    font-size: 12px;
+  }
+
+  .items {
+    display: flex;
+    width: 100%;
+    min-height: 500px;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    background-color: rgb(75, 78, 76);
+    padding-top: 2rem;
+    position: relative;
+
+    .item-wrapper {
+      margin-right: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .item {
+      position: absolute;
+    }
+
+    .white-bg {
+      background-color: white;
+      height: 350px;
+      width: 250px;
+      margin-top: 4rem;
+    }
+
+    .img-wrapper {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.brands-section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .brand {
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    min-width: 200px;
+    margin: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 0.5rem 1rem;
+    }
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+  .nike {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.541) 80%, transparent),
+      url(../../assets/images/promos/brand-nike.png);
+    width: 30%;
+  }
+  .puma {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.541) 80%, transparent),
+      url(../../assets/images/promos/brand-puma.jpg);
+    width: 30%;
+  }
+  .vans {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.541) 80%, transparent),
+      url(../../assets/images/promos/brand-vans.jpg);
+    width: 50%;
+  }
+  .adidas {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.541) 80%, transparent),
+      url(../../assets/images/promos/brand-adidas.jpg);
+    width: 50%;
+  }
+}
+
 @media (max-width: 1200px) {
   .product-info {
     right: 0;
-    background-color: yellow;
   }
 
   .video-wrapper {
@@ -125,4 +318,39 @@ button {
   .promo-img-wrapper {
     display: none !important;
   }
+}
+
+@media (max-width: 500px) {
+  .value-prop {
+    height: 300px !important;
+    margin-top: 2rem;
+    h3,
+    p {
+      font-size: 14px !important;
+      width: 200px !important;
+    }
+  }
+
+  .images-wrapper {
+    .nike {
+      transform: translate(-10rem);
+    }
+
+    .puma {
+      transform: translateY(50rem);
+    }
+  }
+
+  .brands-section {
+    padding: 4rem 0.5rem;
+    .wrapper {
+      width: 100%;
+    }
+  }
+}
+
+content {
+  background-color: yellow;
+  min-height: 100vh;
+  width: 100%;
 }

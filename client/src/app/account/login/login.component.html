@@ -5,6 +5,7 @@
             <h2>Login</h2>
             <p class="message">Please Sign In to Continue </p>
             <app-text-inputs formControlName="email" [label]="'Email Address'"></app-text-inputs>
+            <p style="color:red;font-size:11px;margin-top: 0.5rem;" *ngIf="errorMessage">{{errorMessage}}</p>
             <app-text-inputs [type]="'password'" formControlName="password" [label]="'Password'"></app-text-inputs>
 
             <button [disabled]="loginForm.invalid">Login</button>

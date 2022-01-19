@@ -7,8 +7,14 @@ input {
   border-radius: 5px;
 }
 
-.error-message {
-  font-size: 12px;
-  margin: 0.5rem;
-  color: red;
+input:focus {
+  outline: none;
+}
+
+.error-messages {
+  .error-message {
+    font-size: 12px;
+    margin-top: 0.5rem;
+    color: red;
+  }
 }
