@@ -74,9 +74,11 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   handleSuggestionClick(item) {
-    const url = this.router.serializeUrl(
-      this.router.createUrlTree([`/shop/${item.id}`])
-    );
+    let url = `/shop/${item.id}`;
+    // this.router.navigateByUrl(`/shop/${item.id}`, {
+    //   state: { redirect: `/shop/${item.id}` },
+    // });
+    window.history.state.redirect = url;
 
     window.open(url, '_blank');
   }

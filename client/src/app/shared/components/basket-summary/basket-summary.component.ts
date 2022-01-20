@@ -28,7 +28,6 @@ export class BasketSummaryComponent implements OnInit {
   ngOnInit(): void {}
 
   decrementProductQuantity(item: IBasketItem) {
-    console.log(this.basket$);
     this.decrement.emit(item);
   }
 

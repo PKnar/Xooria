@@ -24,23 +24,19 @@ export class BasketComponent implements OnInit {
   }
 
   removeBasketProduct(product: IBasketItem) {
-    console.log('remove');
     this.basketService.removeItemFromBasket(product);
   }
 
   incrementProductQuantity(product: IBasketItem) {
-    console.log('increment');
     this.basketService.incrementProductQuantity(product);
   }
 
   decrementProductQuantity(product: IBasketItem) {
-    console.log('decrement');
     this.basketService.decrementProductQuantity(product);
   }
 
   handleCheckoutClick() {
     let user = this.accountService.getCurrentUser();
-    console.log(user);
     if (user) {
       this.router.navigateByUrl('/checkout');
     } else {

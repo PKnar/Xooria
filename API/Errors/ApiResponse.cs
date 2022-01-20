@@ -9,7 +9,7 @@ namespace API.Errors
     {
 
 
-        public ApiResponse(int statusCode, string message = null)
+        public ApiResponse(int statusCode, string message = "")
         {
             StatusCode = statusCode;
             Message = message ?? GetDefaultMessageForStatusCode(statusCode);

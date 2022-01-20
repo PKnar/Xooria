@@ -14,10 +14,9 @@ import { IPagination } from './shared/models/pagination';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  products: IProduct[];
+  error = '';
 
   constructor(
-    private http: HttpClient,
     private accountService: AccountService,
     private basketService: BasketService,
     private router: Router
@@ -46,11 +45,8 @@ export class AppComponent implements OnInit {
     const token = localStorage.getItem('token');
     if (token) {
       this.accountService.loadCurrentUser(token).subscribe(
-        () => {
-          const { redirect } = window.history.state;
-          this.router.navigateByUrl(redirect || '/shop');
-        },
-        (error) => console.log(error)
+        () => {},
+        (error) => (this.error = error)
       );
     }
   }

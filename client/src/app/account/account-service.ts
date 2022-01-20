@@ -72,7 +72,6 @@ export class AccountService {
   }
 
   updateUserAddress(address: IAddress) {
-    console.log('update address');
     return this.http.put<IAddress>(`${this.baseUrl}account/address`, address);
   }
 }

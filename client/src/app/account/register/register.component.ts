@@ -74,7 +74,6 @@ export class RegisterComponent implements OnInit {
         this.router.navigateByUrl(redirect || '/shop');
       },
       (error) => {
-        console.log(error);
         this.errors = error.errors;
       }
     );

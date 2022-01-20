@@ -64,8 +64,7 @@ export class BasketService {
     addedProduct: IBasketItem,
     quantity: number
   ): IBasketItem[] {
-    //check if product exist before adding
-    console.log(items);
+    //check if product exist before addings
     const index = items.findIndex((i) => i.id === addedProduct.id);
 
     if (index === -1) {
